@@ -1,0 +1,11 @@
+fastapi>=0.95
+uvicorn[standard]>=0.21
+pydantic>=1.10
+python-dotenv>=1.0
+requests>=2.28
+httpx>=0.24
+typing_extensions
+psycopg2-binary>=2.9 
+openai               
+pytest
+pydantic-settings
