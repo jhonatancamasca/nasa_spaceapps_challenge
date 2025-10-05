@@ -3,6 +3,7 @@ from src.config import get_settings
 
 settings = get_settings()
 
+
 class LLMClient:
     def __init__(self, provider: str = None):
         self.provider = provider or settings.llm_provider
@@ -14,6 +15,7 @@ class LLMClient:
             return
         if self.provider == "openai":
             import openai
+
             openai.api_key = settings.openai_api_key
             self._client = openai
         else:
@@ -25,7 +27,7 @@ class LLMClient:
         if self.provider == "openai":
             resp = self._client.ChatCompletion.create(
                 model=settings.openai_model,
-                messages=[{"role":"user","content":prompt}],
+                messages=[{"role": "user", "content": prompt}],
                 **kwargs,
             )
             # adapt to simple dict
@@ -33,8 +35,10 @@ class LLMClient:
         # fallback
         return {"text": ""}
 
+
 # helper single instance
 _llm_client = None
+
 
 def get_llm_client() -> LLMClient:
     global _llm_client
