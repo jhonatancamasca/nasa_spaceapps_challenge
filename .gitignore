@@ -1,0 +1,104 @@
+# -------------------------------
+# Python
+# -------------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# -------------------------------
+# Virtual environments
+# -------------------------------
+.env
+.venv
+venv/
+ENV/
+env/
+env.bak/
+
+# -------------------------------
+# Jupyter notebooks
+# -------------------------------
+.ipynb_checkpoints
+
+# -------------------------------
+# OS-specific
+# -------------------------------
+.DS_Store
+Thumbs.db
+
+# -------------------------------
+# IDEs / Editors
+# -------------------------------
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# -------------------------------
+# Logs & caches
+# -------------------------------
+*.log
+logs/
+*.pickle
+*.pkl
+*.db
+*.sqlite3
+__cache__/
+.cache/
+*.pytest_cache/
+*.coverage
+coverage.xml
+htmlcov/
+
+# -------------------------------
+# Environment & config files
+# -------------------------------
+.env
+.env.*
+*.env
+.envrc
+.env.local
+.env.development
+.env.production
+.env.test
+.env.example
+
+# -------------------------------
+# Build / Distribution
+# -------------------------------
+build/
+dist/
+*.egg-info/
+*.egg
+MANIFEST
+
+# -------------------------------
+# Data / Outputs
+# -------------------------------
+data/
+datasets/
+outputs/
+results/
+tmp/
+temp/
+*.bak
+*.old
+*.swp
+
+# -------------------------------
+# Notebooks / Reports
+# -------------------------------
+*.pdf
+*.pptx
+*.docx
+*.xlsx
+
+# -------------------------------
+# Docker
+# -------------------------------
+*.pid
+*.tar
+*.log
+*.pid.lock
