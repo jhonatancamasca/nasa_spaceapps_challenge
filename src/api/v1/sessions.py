@@ -15,8 +15,6 @@ def create_session():
 
 @router.post("/{session_uuid}/query")
 def ask(session_uuid: str, query: QueryInput):
-    # perform retrieval + prompt + llm
-    # stubbed answer
     answer = "This is a stubbed answer."
     SESSIONS[session_uuid]["conversations"].append({"role": "user", "query": query.query, "answer": answer})
     return {"answer": answer}

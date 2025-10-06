@@ -1,16 +1,35 @@
-from fastapi import APIRouter, BackgroundTasks
+from typing import Literal
+from fastapi import APIRouter, BackgroundTasks, Query
 from src.models.schemas import DocumentInput
-from src.services.background_tasks import add_document_summarization_task
+from src.services.background_tasks import generate_scientific_report_background
 
 router = APIRouter(prefix="/v1/summarization", tags=["summarization"])
 
-@router.post("/start")
-def start(doc: DocumentInput, background_tasks: BackgroundTasks):
-    # For production, validate doc exists in storage
-    # Simulate chunk extraction (in real life you'd extract text and call vectorizer)
-    dummy_chunks = ["chunk 1 text", "chunk 2 text"]
-    add_document_summarization_task(background_tasks, doc.document_uuid or "generated-uuid", dummy_chunks)
-    return {"document_uuid": doc.document_uuid or "generated-uuid", "status": "processing"}
+
+@router.get("/analyze")
+def analyze_scientific_query(
+    query: str,
+    background_tasks: BackgroundTasks,
+    k: int = Query(None),
+    threshold: float = Query(None),
+    source: Literal["chunk", "asset_chunk"] = Query("chunk"),
+):
+    """
+    Launch background report generation.
+    """
+    background_tasks.add_task(
+        generate_scientific_report_background,
+        query=query,
+        k=k,
+        threshold=threshold,
+        source=source,
+    )
+
+    return {
+        "status": "processing",
+        "message": f"Scientific report generation started for query '{query}'",
+    }
+
 
 @router.get("/status/{document_uuid}")
 def status(document_uuid: str):

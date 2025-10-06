@@ -15,7 +15,7 @@ class Settings(BaseSettings):
     openai_model: str = "gpt-4o-mini"
 
     database_url: str
-    
+
     # AWS S3 Configuration
     aws_access_key_id: str
     aws_secret_access_key: str
@@ -30,15 +30,21 @@ class Settings(BaseSettings):
     # Storage
     storage_type: str = "s3"
     local_storage_path: str = "./data"
-    
+
     # Embedder
     HF_TOKEN: str
 
-    # Pydantic v2 configuration
-    model_config = {
-        "env_file": ".env",
-        "extra": "forbid"
-    }
+    # Groq settings
+    groq_api_key: str 
+    groq_model: str = "mixtral-8x7b-32768"
+
+    # Ollama settings
+    ollama_model: str = "llama2"
+    ollama_host: str = "http://localhost:11434"
+
+    class Config:
+        env_file = ".env"
+        extra = "forbid"
 
 @lru_cache()
 def get_settings() -> Settings:

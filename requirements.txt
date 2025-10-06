@@ -27,3 +27,12 @@ cachetools
 
 # --- Testing ---
 pytest
+boto3
+langchain>=0.2
+langchain-core>=0.2
+langchain-community>=0.2
+fpdf2
+altair
+openai 
+groq 
+ollama-python
