@@ -12,7 +12,7 @@ def search(
     k: int = Query(None, description="Number of top results to retrieve"),
     threshold: float = Query(None, description="Minimum relevance threshold"),
     source: Literal["chunk", "asset_chunk"] = Query(
-        "chunk",
+        "both",
         description="Data source: 'chunk' for text, 'asset_chunk' for image embeddings",
     ),
 ):

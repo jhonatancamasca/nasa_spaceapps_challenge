@@ -145,8 +145,8 @@ def generate_scientific_report_background(
             partial_variables={"format_instructions": parser.get_format_instructions()},
         )
 
-        llm = ChatOpenAI(model_name="gpt-4o", temperature=0)
-        client = get_llm_client()
+        #llm = ChatOpenAI(model_name="gpt-4o", temperature=0)
+        llm = get_llm_client()
         chain = LLMChain(prompt=prompt, llm=llm)
 
         # --- 3. Generate report ---

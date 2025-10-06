@@ -72,7 +72,7 @@ def retrieve(
     query: str,
     k: int | None = None,
     threshold: float | None = None,
-    source: Literal["chunk", "asset_chunk", "both"] = "chunk",
+    source: Literal["chunk", "asset_chunk", "both"] = "both",
 ) -> List[Chunk]:
     k = k or settings.default_k
     threshold = threshold or settings.default_threshold
